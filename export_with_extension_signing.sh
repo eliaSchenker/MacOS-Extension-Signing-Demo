@@ -12,7 +12,7 @@ declare -a to_sign_paths=(
       "Extension_With_Signing_Demo.app/Contents/PlugIns/findersynctest.appex" 
       "Extension_With_Signing_Demo.app")
 for i in "${to_sign_paths[@]}"; do 
-    codesign -s "Developer ID Application: XXXXXXXXX (XXXXXXX)" -f --timestamp -o runtime --display --entitlements :- "$i"
+    codesign -s "Developer ID Application: XXXXXXXXX (XXXXXXX)" -f --timestamp -o runtime "$i"
 done
 # Create zip archive
 ditto -c -k --sequesterRsrc --keepParent Extension_With_Signing_Demo.app Extension_With_Signing_Demo.zip
